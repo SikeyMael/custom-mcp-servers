@@ -8,7 +8,7 @@ mcp = FastMCP("GrampsWeb")
 
 GRAMPS_URL = os.environ.get("GRAMPS_WEB_URL", "http://localhost")
 GRAMPS_USERNAME = os.environ.get("GRAMPS_WEB_USERNAME", "")
-GRAMPS_PASSWORD = os.environ.get("GRAMPS_WEB_PASSWORD", "Agent2026!")
+GRAMPS_PASSWORD = os.environ.get("GRAMPS_WEB_PASSWORD", "")
 
 _token = None
 
