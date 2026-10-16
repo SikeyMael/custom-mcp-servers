@@ -363,9 +363,15 @@ def prowlarr_get_indexer_status() -> list:
 
 
 @mcp.tool()
-def prowlarr_get_indexer_stats() -> list:
-    """Get statistics for all indexers (response times, queries, grabs, failures)."""
-    return api_get("/api/v1/indexerstats")
+def prowlarr_get_indexer_stats() -> dict | list:
+    """Get statistics for all indexers (response times, queries, grabs, failures).
+
+    Returns the 'indexers' array from the stats endpoint.
+    """
+    data = api_get("/api/v1/indexerstats")
+    if isinstance(data, dict) and "indexers" in data:
+        return data["indexers"]
+    return data  # type: ignore[return-value]
 
 
 # ─── Tag Management ───────────────────────────────────────────────────
