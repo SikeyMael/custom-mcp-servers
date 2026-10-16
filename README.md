@@ -6,7 +6,7 @@ A collection of custom Model Context Protocol (MCP) servers built with Python (`
 
 1. **Radarr** (`radarr_mcp.py`) - Manage and search movies.
 2. **Sonarr** (`sonarr_mcp.py`) - Manage TV series and calendar.
-3. **Prowlarr** (`prowlarr_mcp.py`) - Manage indexers and search.
+3.- **Prowlarr** (`prowlarr_mcp.py`) - Full indexer management (CRUD, bulk ops, test, actions), indexer proxy management, tag management, download client management, search, and commands.
 4. **Seerr / Overseerr** (`seerr_mcp.py`) - Media requests and search (includes `seerr_request_movie`).
 5. **Jellyfin** (`jellyfin_mcp.py`) - Jellyfin library search and metadata.
 6. **qBittorrent** (`qbittorrent_mcp.py`) - Active torrents monitoring.
