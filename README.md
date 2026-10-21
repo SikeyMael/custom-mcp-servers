@@ -11,6 +11,7 @@ A collection of custom Model Context Protocol (MCP) servers built with Python (`
 5. **Jellyfin** (`jellyfin_mcp.py`) - Jellyfin library search and metadata.
 6. **qBittorrent** (`qbittorrent_mcp.py`) - Active torrents monitoring.
 7. **Gramps Web** (`gramps_mcp_server.py`) - Genealogy records and search.
+8. **DidUP** (`didup_mcp.py`) - Read-only access to the Italian school electronic grade book (Argo Famiglia): grades, absences, schedule, announcements.
 
 ## Requirements
 
@@ -33,4 +34,5 @@ Each server relies on environment variables for URL and API keys/credentials:
 - **Seerr**: `SEERR_URL`, `SEERR_API_KEY`
 - **Jellyfin**: `JELLYFIN_URL`, `JELLYFIN_API_KEY`
 - **qBittorrent**: `QBIT_URL`
-- **Gramps**: `GRAMPS_WEB_URL`, `GRAMPS_WEB_USERNAME`, `GRAMPS_WEB_PASSWORD
+- **Gramps**: `GRAMPS_WEB_URL`, `GRAMPS_WEB_USERNAME`, `GRAMPS_WEB_PASSWORD`
+- **DidUP**: `DIDUP_SCUOLA` (codice scuola), `DIDUP_USER`, `DIDUP_PASS`
