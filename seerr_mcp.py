@@ -462,7 +462,7 @@ def seerr_request_movie(
     """
     # Verify media exists in Seerr's database before requesting
     check = get(f"/movie/{tmdb_id}", {"language": "en"})
-    if not check or check.get("id") is None:
+    if not isinstance(check, dict) or check.get("id") is None:
         return {"error": f"Media not found in Seerr (tmdbId={tmdb_id}). The movie may not be synced from TMDB yet. Use Radarr API directly to add it first."}
     
     body = {
@@ -512,7 +512,7 @@ def seerr_request_tv(
     """
     # Verify media exists in Seerr's database before requesting
     check = get(f"/tv/{tmdb_id}", {"language": "en"})
-    if not check or check.get("id") is None:
+    if not isinstance(check, dict) or check.get("id") is None:
         return {"error": f"Media not found in Seerr (tmdbId={tmdb_id}). The show may not be synced from TMDB yet. Use Sonarr API directly to add it first."}
     
     body = {
