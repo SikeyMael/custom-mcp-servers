@@ -460,9 +460,14 @@ def seerr_request_movie(
         is_4k: Whether this is a 4K request (default False)
         ignore_quota: Skip quota checks (requires MANAGE_REQUESTS permission)
     """
+    # Verify media exists in Seerr's database before requesting
+    check = get(f"/movie/{tmdb_id}", {"language": "en"})
+    if not check or check.get("id") is None:
+        return {"error": f"Media not found in Seerr (tmdbId={tmdb_id}). The movie may not be synced from TMDB yet. Use Radarr API directly to add it first."}
+    
     body = {
         "mediaType": "movie",
-        "mediaId": tmdb_id,
+        "mediaId": check["id"],
         "is4k": is_4k,
     }
     if media_language_profile_id is not None:
@@ -505,9 +510,14 @@ def seerr_request_tv(
         is_4k: Whether this is a 4K request (default False)
         ignore_quota: Skip quota checks (requires MANAGE_REQUESTS permission)
     """
+    # Verify media exists in Seerr's database before requesting
+    check = get(f"/tv/{tmdb_id}", {"language": "en"})
+    if not check or check.get("id") is None:
+        return {"error": f"Media not found in Seerr (tmdbId={tmdb_id}). The show may not be synced from TMDB yet. Use Sonarr API directly to add it first."}
+    
     body = {
         "mediaType": "tv",
-        "mediaId": tmdb_id,
+        "mediaId": check["id"],
         "is4k": is_4k,
     }
     if seasons is not None:
